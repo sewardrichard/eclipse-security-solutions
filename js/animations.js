@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .from(".label-mono", { y: 20, opacity: 0, duration: 0.7, ease: "power3.out" })
             .from(".title-line-1", { y: 50, opacity: 0, duration: 0.9, ease: "power4.out" }, "-=0.4")
             .from(".title-line-2", { y: 50, opacity: 0, duration: 0.9, ease: "power4.out" }, "-=0.65")
-            .from(".hero-subline",  { opacity: 0, y: 20, duration: 0.8, ease: "power3.out" }, "-=0.5")
-            .from(".hero-actions",  { opacity: 0, y: 16, duration: 0.6, ease: "power3.out" }, "-=0.5")
+            .from(".hero-subline", { opacity: 0, y: 20, duration: 0.8, ease: "power3.out" }, "-=0.5")
+            .from(".hero-actions", { opacity: 0, y: 16, duration: 0.6, ease: "power3.out" }, "-=0.5")
             .from(".hero-scroll-indicator", { opacity: 0, duration: 0.5 }, "-=0.2");
 
         // ── Stat Counters ──────────────────────────────
@@ -77,19 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // ── Eclipse Hero (moon + stars) ─────────────────
         (function initEclipseHero() {
             const starCanvas = document.getElementById('starCanvas');
-            const eclipse   = document.getElementById('eclipse');
-            const moon      = document.getElementById('moon');
-            const glowRing  = document.getElementById('glowRing');
-            const glowMid   = document.getElementById('glowMid');
+            const eclipse = document.getElementById('eclipse');
+            const moon = document.getElementById('moon');
+            const glowRing = document.getElementById('glowRing');
+            const glowMid = document.getElementById('glowMid');
             const glowInner = document.getElementById('glowInner');
-            const glowFar   = document.getElementById('glowFar');
-            const chromo    = document.getElementById('chromo');
+            const glowFar = document.getElementById('glowFar');
+            const chromo = document.getElementById('chromo');
 
             if (!starCanvas || !eclipse || !moon) return;
 
-            const MOON_MAX  = 520; // start further below so rise is more visible
-            const TOTALITY  = 20;
-            const ENTRY_MS  = 2200;
+            const MOON_MAX = 520; // start further below so rise is more visible
+            const TOTALITY = 20;
+            const ENTRY_MS = 3000;
 
             // Sun canvas inside eclipse
             const sunCanvas = document.getElementById('sunCanvas');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Starfield canvas
             const sCtx = starCanvas.getContext('2d');
             const resizeStars = () => {
-                starCanvas.width  = window.innerWidth;
+                starCanvas.width = window.innerWidth;
                 starCanvas.height = window.innerHeight;
             };
             resizeStars();
@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (sh.life >= sh.max) { shoots.splice(i, 1); continue; }
 
                     const prog = sh.life;
-                    const fadeIn  = Math.min(prog / 0.2, 1);
+                    const fadeIn = Math.min(prog / 0.2, 1);
                     const fadeOut = prog > 0.7 ? 1 - (prog - 0.7) / 0.3 : 1;
-                    const alpha   = fadeIn * fadeOut * 0.8;
+                    const alpha = fadeIn * fadeOut * 0.8;
 
                     const tx = sh.x * W + Math.cos(sh.angle) * sh.len * prog;
                     const ty = sh.y * H + Math.sin(sh.angle) * sh.len * prog;
@@ -214,16 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             function updateState(moonY) {
-                const frac       = clamp(moonY / MOON_MAX, 0, 1);
-                const proximity  = 1 - frac;
+                const frac = clamp(moonY / MOON_MAX, 0, 1);
+                const proximity = 1 - frac;
                 const atTotality = moonY <= TOTALITY;
 
-                const glowT      = clamp((proximity - 0.65) / 0.35, 0, 1);
-                const glowEased  = glowT * glowT * glowT;
+                const glowT = clamp((proximity - 0.65) / 0.35, 0, 1);
+                const glowEased = glowT * glowT * glowT;
 
-                if (glowMid)   glowMid.style.opacity   = glowEased * 0.9;
+                if (glowMid) glowMid.style.opacity = glowEased * 0.9;
                 if (glowInner) glowInner.style.opacity = glowEased * 1.0;
-                if (glowFar)   glowFar.style.opacity   = glowEased * 0.75;
+                if (glowFar) glowFar.style.opacity = glowEased * 0.75;
                 setGlowSize(glowEased);
 
                 if (glowRing) {
@@ -263,9 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const t = Math.min((ts - entryStart) / ENTRY_MS, 1);
                 // Animate from well below centre (MOON_MAX) up to slight overshoot above 0
                 const pathStart = MOON_MAX;
-                const pathEnd   = -40; // small overshoot so you feel the rise into totality
-                const eased     = easeOutExpo(t);
-                const y         = pathStart + (pathEnd - pathStart) * eased;
+                const pathEnd = 0; // stop exactly at totality
+                const eased = easeOutExpo(t);
+                const y = pathStart + (pathEnd - pathStart) * eased;
                 setMoonY(y);
                 if (t < 1) {
                     requestAnimationFrame(runEntry);
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!ticking) {
                     requestAnimationFrame(() => {
                         ticking = false;
-                        const max  = document.body.scrollHeight - window.innerHeight;
+                        const max = document.body.scrollHeight - window.innerHeight;
                         const frac = max > 0 ? window.scrollY / max : 0;
                         setMoonY(frac * MOON_MAX);
                     });
