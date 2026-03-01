@@ -118,6 +118,11 @@ strong { font-weight: 600; color: var(--color-dark); }
   flex-shrink: 0;
 }
 
+/* Bright variant when used over dark hero */
+.hero-section .label-mono {
+  color: rgba(255, 240, 210, 0.96);
+}
+
 .mono-label {
   font-family: var(--font-mono);
   font-size: 0.78rem;

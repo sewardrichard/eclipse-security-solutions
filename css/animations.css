@@ -62,6 +62,32 @@
   }
 }
 
+@keyframes ringBreathe {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1.5px rgba(255, 248, 200, 0.70),
+      0 0 6px 3px rgba(255, 220, 120, 0.45),
+      0 0 20px 9px rgba(233, 152, 24, 0.22),
+      0 0 55px 22px rgba(200, 110, 10, 0.10),
+      0 0 110px 44px rgba(180, 90, 5, 0.045);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 1.5px rgba(255, 255, 220, 0.85),
+      0 0 9px 5px rgba(255, 230, 140, 0.58),
+      0 0 30px 13px rgba(233, 152, 24, 0.30),
+      0 0 75px 30px rgba(200, 110, 10, 0.14),
+      0 0 150px 58px rgba(180, 90, 5, 0.06);
+  }
+}
+
+.glow-ring.active {
+  animation: ringBreathe 4s ease-in-out infinite;
+}
+
 @keyframes scrollPulse {
 
   0%,

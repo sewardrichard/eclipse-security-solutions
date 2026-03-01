@@ -24,6 +24,7 @@
 <body>
     <div class="noise-overlay"></div>
     <div id="top-sentinel"></div>
+    <canvas id="starCanvas"></canvas>
 
     <!-- ══════════════════════════════
          NAV
@@ -58,6 +59,7 @@
         <section class="hero-section" aria-label="Hero">
             <div class="hero-content">
                 <span class="label-mono">// LICENSED SECURITY PROVIDER — ZIMBABWE</span>
+
                 <h1 class="hero-title">
                     <span class="title-line-1">Command the</span>
                     <span class="title-line-2">Shadow.</span>
@@ -70,6 +72,18 @@
                     <a href="#services" class="btn-ghost">Explore Services</a>
                 </div>
             </div>
+            <div class="hero-eclipse-wrapper">
+                <div class="hero-eclipse" id="eclipse">
+                    <div class="glow-far" id="glowFar"></div>
+                    <div class="glow-mid" id="glowMid"></div>
+                    <div class="glow-inner" id="glowInner"></div>
+                    <canvas id="sunCanvas"></canvas>
+                    <div class="glow-ring" id="glowRing"></div>
+                    <div class="chromo" id="chromo"></div>
+                    <div class="moon" id="moon"></div>
+                </div>
+            </div>
+
             <div class="hero-scroll-indicator">
                 <span class="scroll-line"></span>
                 <span class="label-mono">Scroll</span>
@@ -493,7 +507,7 @@
                         <img src="assets/EclipseSecurityLight.svg" alt="Eclipse Security Solutions logo"
                             class="footer-logo-img">
                     </a>
-                    <p class="tagline">Darkness is our advantage.</p>
+                    <p class="tagline">Protecting What Matters Most</p>
                 </div>
 
                 <div class="footer-links-group">
@@ -501,8 +515,8 @@
                         <h4>Services</h4>
                         <a href="#services">Manned Guarding</a>
                         <a href="#services">Mobile Patrols</a>
-                        <a href="#services">Remote Monitoring</a>
-                        <a href="#services">Electronic Security</a>
+                        <a href="#services">CVIT Logistics</a>
+                        <a href="#services">Risk Consulting</a>
                     </div>
                     <div class="footer-col">
                         <h4>Company</h4>
