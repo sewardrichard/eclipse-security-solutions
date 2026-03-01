@@ -30,6 +30,9 @@
   --space-lg: 4rem;
   --space-xl: 8rem;
 
+  /* Global Layout */
+  --site-padding: clamp(1.56rem, 6vw, 6rem);
+
   /* Radius */
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
@@ -209,7 +212,7 @@ main {
 }
 
 section {
-  padding: clamp(5rem, 8vw, 9rem) 5vw;
+  padding: clamp(5rem, 8vw, 9rem) var(--site-padding);
 }
 
 .section-intro {
