@@ -495,12 +495,37 @@
   background: var(--color-surface);
 }
 
+.services-intro-align {
+  max-width: 1200px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--site-padding);
+  text-align: left;
+}
+
+.services-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.services-group-title {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  padding: 0 var(--site-padding);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 var(--site-padding);
 }
 
 .service-card {
@@ -753,7 +778,7 @@
 ════════════════════════════════════════ */
 .vision-section {
   background: var(--color-background);
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) var(--site-padding);
 }
 
 .vision-grid {
@@ -842,8 +867,8 @@
 
 .features-header {
   max-width: 600px;
-  margin: 0 auto var(--space-lg);
-  text-align: center;
+  margin: 0 var(--space-lg) var(--space-lg) 0;
+  text-align: left;
 }
 
 .features-header .section-title {
