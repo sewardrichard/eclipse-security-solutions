@@ -423,7 +423,8 @@
 .stats-grid {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.8rem;
   max-width: 960px;
   margin: 0 auto;
   padding: 3.5rem 5vw;
@@ -431,21 +432,21 @@
 
 .stat-item {
   text-align: center;
-  flex: 1;
+  flex: 0 0 auto;
 }
 
 .stat-number {
   font-family: var(--font-head);
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
   color: var(--color-primary);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .stat-suffix {
   font-family: var(--font-head);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   font-weight: 800;
   color: var(--color-primary);
   opacity: 0.7;
@@ -455,10 +456,12 @@
   display: block;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  line-height: 1.4;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.35);
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
+  max-width: 180px;
 }
 
 .stat-divider {
@@ -583,11 +586,10 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 4rem;
   max-width: 1100px;
   margin: 0 auto;
-  align-items: center;
 }
 
 /* Left: logo visual panel */
@@ -595,13 +597,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .about-logo-panel {
   width: 100%;
-  aspect-ratio: 1;
-  max-width: 380px;
+  aspect-ratio: 1.2;
+  max-width: 520px;
   background: var(--color-dark);
   border-radius: var(--radius-xl);
   display: flex;
@@ -622,8 +624,8 @@
 }
 
 .about-logo-img {
-  width: 80%;
-  max-width: 280px;
+  width: 78%;
+  max-width: 320px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -673,7 +675,9 @@
 }
 
 /* Right: copy */
-.about-copy {}
+.about-copy {
+  max-width: 620px;
+}
 
 .about-lead {
   font-size: 1.1rem;
@@ -683,9 +687,9 @@
 
 .about-checklist {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.75rem;
 }
 
 .about-checklist li {
@@ -780,9 +784,10 @@
 }
 
 .vision-card-icon i {
-  color: var(--color-primary);
+  color: #FF9900; /* Changed to brand orange color */
   width: 26px;
   height: 26px;
+  display: block; /* Added to ensure icon shows */
 }
 
 .vision-card h3 {
@@ -954,11 +959,11 @@
 ════════════════════════════════════════ */
 .protocol-wrapper {
   background: var(--color-dark);
-  padding: 0 5vw;
+  padding: clamp(5rem, 8vw, 9rem) 5vw;
 }
 
 .protocol-header {
-  padding: clamp(5rem, 8vw, 9rem) 0 3rem;
+  padding: 0 0 3rem;
   max-width: 600px;
 }
 
@@ -966,18 +971,24 @@
   color: white;
 }
 
+/* Protocol cards are now simple stacked rows (no sticky pinning) */
 .protocol-card {
-  height: 100vh;
   display: flex;
   align-items: center;
   gap: clamp(3rem, 6vw, 6rem);
   color: white;
-  padding: 4rem 0;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.protocol-card:first-of-type {
+  border-top: none;
 }
 
 .protocol-visual {
   flex: 1;
-  height: 55vh;
+  height: 260px;
   background: rgba(255, 255, 255, 0.025);
   border-radius: var(--radius-xl);
   display: flex;
@@ -990,6 +1001,16 @@
 
 .protocol-info {
   flex: 1;
+}
+
+/* Hover state: slight lift + glow */
+.protocol-card:hover .protocol-visual {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+
+.protocol-card:hover .protocol-info h2 {
+  color: var(--color-primary);
 }
 
 .mono-step {

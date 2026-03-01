@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .from(".hero-scroll-indicator", { opacity: 0, duration: 0.5 }, "-=0.2");
 
         // ── Stat Counters ──────────────────────────────
-        const statNumbers = document.querySelectorAll('.stat-number');
+        // Only animate stats that explicitly declare a numeric data-target.
+        const statNumbers = Array.from(document.querySelectorAll('.stat-number'))
+            .filter(el => el.dataset && el.dataset.target && !isNaN(parseInt(el.dataset.target, 10)));
+
         if (statNumbers.length > 0) {
             gsap.from('.stats-strip', {
                 scrollTrigger: {
@@ -53,25 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
             once: true
         });
 
-        // ── Sticky Protocol Stack ──────────────────────
-        const steps = gsap.utils.toArray('.protocol-card');
-        steps.forEach((step, i) => {
-            if (i < steps.length - 1) {
-                gsap.to(step, {
-                    scrollTrigger: {
-                        trigger: step,
-                        start: 'top 10%',
-                        endTrigger: '.protocol-wrapper',
-                        end: 'bottom bottom',
-                        pin: true,
-                        pinSpacing: false,
-                        scrub: true
-                    },
-                    scale: 0.92,
-                    filter: 'blur(8px)',
-                    opacity: 0.4
-                });
-            }
+        // ── Protocol Cards (simple column reveal) ──────
+        // Steps are now always visible in a vertical column; we only add a soft
+        // scroll-in animation for each card instead of sticky pinning.
+        ScrollTrigger.batch('.protocol-card', {
+            start: 'top 85%',
+            onEnter: batch => batch.forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.9,
+                        ease: 'power3.out',
+                        delay: i * 0.08
+                    }
+                );
+            }),
+            once: true
         });
 
         // ── Eclipse Hero (moon + stars) ─────────────────
