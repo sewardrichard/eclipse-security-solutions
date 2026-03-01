@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLIPSE | Intelligent Security Solutions — Zimbabwe</title>
+    <meta name="description"
+        content="Eclipse Security Solutions delivers intelligent, proactive protection through highly trained personnel, advanced technology, and unwavering vigilance across Zimbabwe.">
+
+    <!-- Google Fonts: Syne (headlines) + Inter (body) + Space Mono (brand/mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <div id="top-sentinel"></div>
+
+    <!-- ══════════════════════════════
+         NAV
+    ══════════════════════════════ -->
+    <nav class="navbar-pill" role="navigation" aria-label="Main navigation">
+        <a href="#" class="nav-logo" aria-label="Eclipse Security Solutions home">
+            <!-- Light version: shown over dark hero -->
+            <img src="assets/EclipseSecurityLight.svg" alt="Eclipse Security Solutions" class="logo-img logo-light">
+            <!-- Dark version: shown when navbar is scrolled (glass) -->
+            <img src="assets/EclipseSecurity.svg" alt="Eclipse Security Solutions" class="logo-img logo-dark">
+            <span class="nav-wordmark">ECLIPSE SECURITY</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#services">Services</a>
+            <a href="#vision">About</a>
+            <a href="#protocol">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn-primary-pill">
+            <span class="btn-text">Get Assessment</span>
+            <span class="btn-slide"></span>
+        </a>
+    </nav>
+
+    <main>
+        <!-- ══════════════════════════════
+             HERO
+        ══════════════════════════════ -->
+        <section class="hero-section" aria-label="Hero">
+            <div class="hero-content">
+                <span class="label-mono">// LICENSED SECURITY PROVIDER — ZIMBABWE</span>
+                <h1 class="hero-title">
+                    <span class="title-line-1">Command the</span>
+                    <span class="title-line-2">Shadow.</span>
+                </h1>
+                <p class="hero-subline">A premier, licensed security provider built on the principles of integrity,
+                    innovation, and unwavering vigilance. We combine highly trained personnel with advanced technology
+                    to create customised safety ecosystems — built around your unique needs.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary-large">Request a Security Assessment</a>
+                    <a href="#services" class="btn-ghost">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span class="scroll-line"></span>
+                <span class="label-mono">Scroll</span>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             STATS STRIP
+        ══════════════════════════════ -->
+        <section class="stats-strip" aria-label="Key statistics">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Active Clients</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span><span class="stat-suffix">yr</span>
+                    <span class="stat-label">Industry Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
+                    <span class="stat-label">Operational Coverage</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4">0</span><span class="stat-suffix">min</span>
+                    <span class="stat-label">Average Response Time</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             SERVICES
+        ══════════════════════════════ -->
+        <section id="services" class="services-section">
+            <div class="section-intro">
+                <span class="label-mono">// SERVICE PORTFOLIO</span>
+                <h2 class="section-title">Comprehensive Protection.<br>Every Vector.</h2>
+                <p class="section-subtext">An integrated suite of services designed to address every dimension of modern
+                    security risk.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3>Manned Guarding &amp; Physical Security</h3>
+                    <p>Rigorously vetted, uniformed officers providing visible deterrence — static posts, armed &amp;
+                        unarmed guards, and professional access control &amp; reception services, 24/7.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Mobile Patrols &amp; Rapid Armed Response</h3>
+                    <p>GPS-tracked scheduled and randomised vehicle patrols, immediate armed reaction dispatch, and key
+                        holding &amp; alarm response — across residential, commercial, and industrial sites.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="lock"></i>
+                    </div>
+                    <h3>Cash &amp; Valuables In-Transit (CVIT)</h3>
+                    <p>Armoured vehicle logistics for secure cash transportation, payroll delivery, pharmaceutical
+                        transit, and full ATM replenishment &amp; servicing support for financial institutions.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <h3>Electronic Security &amp; Technology Integration</h3>
+                    <p>Design, supply, installation, and monitoring of alarm systems, CCTV (analogue &amp; IP),
+                        biometric access control, electric fencing, seismic sensors, and beam detection.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="clipboard-list"></i>
+                    </div>
+                    <h3>Specialised Security &amp; Risk Consulting</h3>
+                    <p>Intelligence-led vulnerability assessments, event security management, executive &amp; close
+                        protection for VIPs and dignitaries, and customised staff security training programmes.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <h3>Remote Monitoring &amp; Control Room Services</h3>
+                    <p>State-of-the-art 24/7 centralised control room managing all systems, remote CCTV monitoring,
+                        guard tour verification, and a real-time client portal for full transparency.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap">
+                        <i data-lucide="wifi"></i>
+                    </div>
+                    <h3>Cybersecurity Liaison &amp; Physical-Digital Convergence</h3>
+                    <p>Securing server rooms and data centres against unauthorised physical access, plus expert
+                        consultation on integrating physical security with IT networks to counter hybrid threats.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             WHY ECLIPSE (APPROACH) — "About Us"
+        ══════════════════════════════ -->
+        <section id="approach" class="about-section">
+            <div class="about-grid">
+                <!-- Left: brand visual / logo panel -->
+                <div class="about-visual reveal">
+                    <div class="about-logo-panel">
+                        <img src="assets/EclipseSecurityLight.svg" alt="Eclipse Security Solutions logo"
+                            class="about-logo-img">
+                    </div>
+                    <div class="about-cert-badge">
+                        <i data-lucide="award"></i>
+                        <span>PISG Act Certified</span>
+                    </div>
+                </div>
+
+                <!-- Right: copy -->
+                <div class="about-copy">
+                    <span class="label-mono">// WHO WE ARE</span>
+                    <h2 class="section-title">Protecting What<br>Matters Most.</h2>
+                    <p class="about-lead">Eclipse Security Solutions (Pvt) Ltd is a premier, licensed security provider
+                        based in Zimbabwe. We deliver comprehensive, intelligent, and proactive protection for
+                        businesses, communities, and individuals across the nation — founded on the principles of
+                        <strong>integrity, innovation, and unwavering vigilance</strong>.
+                    </p>
+                    <p class="about-lead" style="margin-top: 1rem;">We are not just a service provider — we are your
+                        strategic partner in safeguarding your assets, your people, and your peace of mind.</p>
+
+                    <ul class="about-checklist">
+                        <li>
+                            <span class="check-icon"><i data-lucide="trending-up"></i></span>
+                            <div>
+                                <strong>Proactive, Not Reactive</strong>
+                                <p>We use intelligence-led methods to anticipate and neutralise threats before they
+                                    materialise.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i data-lucide="cpu"></i></span>
+                            <div>
+                                <strong>Technology-Enabled</strong>
+                                <p>Cutting-edge systems that enhance the effectiveness and accountability of our
+                                    personnel at every level.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i data-lucide="shield-check"></i></span>
+                            <div>
+                                <strong>Compliance as Standard</strong>
+                                <p>Strict adherence to the PISG Act, NEC regulations, and all applicable laws of
+                                    Zimbabwe.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i data-lucide="handshake"></i></span>
+                            <div>
+                                <strong>Partnership Philosophy</strong>
+                                <p>Every engagement begins with listening. Solutions tailored to your specific
+                                    operational environment.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i data-lucide="users"></i></span>
+                            <div>
+                                <strong>Ethical Employer</strong>
+                                <p>We invest in our people through fair remuneration, continuous training, and career
+                                    development — your best line of defence.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             VISION & MISSION
+        ══════════════════════════════ -->
+        <section id="vision" class="vision-section">
+            <div class="section-intro">
+                <span class="label-mono">// PURPOSE &amp; DIRECTION</span>
+                <h2 class="section-title">The standard we hold<br>ourselves to.</h2>
+            </div>
+            <div class="vision-grid">
+                <div class="vision-card reveal">
+                    <div class="vision-card-icon">
+                        <i data-lucide="eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To set the definitive standard for intelligent protection — anticipating emerging threats and
+                        redefining what dependable security truly looks like.</p>
+                </div>
+                <div class="vision-card reveal">
+                    <div class="vision-card-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>We partner with clients to provide customised security solutions through a fusion of deep
+                        expertise, unwavering vigilance, and cutting-edge practice. Our mission is simple: minimise
+                        risk, enhance safety, and ensure resilient protection that gives you genuine peace of mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             FEATURES (DARK)
+        ══════════════════════════════ -->
+        <section class="features-dark">
+            <div class="features-header reveal">
+                <span class="label-mono" style="color: rgba(255,255,255,0.4)">// OPERATIONAL INTELLIGENCE</span>
+                <h2 class="section-title" style="color:white;">The technology behind<br>every response.</h2>
+            </div>
+            <div class="features-grid">
+                <div class="artifact-card reveal" id="shuffler-card">
+                    <div class="artifact-chrome">
+                        <span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span>
+                        <span class="chrome-label">DISPATCH</span>
+                    </div>
+                    <div class="artifact-ui shuffler-container">
+                        <div class="shuffler-stack" id="alert-stack"></div>
+                        <div class="status-bar">
+                            <span class="pulse-dot"></span>
+                            <span id="live-clock" class="mono-label">00:00:00</span>
+                        </div>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>Rapid Armed Response</h3>
+                        <p>Immediate dispatch to alarm activations — 24 hours a day.</p>
+                    </div>
+                </div>
+
+                <div class="artifact-card reveal">
+                    <div class="artifact-chrome">
+                        <span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span>
+                        <span class="chrome-label">CONTROL ROOM LIVE</span>
+                    </div>
+                    <div class="artifact-ui typewriter-container">
+                        <div id="typewriter-feed" class="mono-feed" aria-live="polite" role="status"></div>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>24/7 Control Room</h3>
+                        <p>Every system. Every patrol. Every incident. Monitored in real time.</p>
+                    </div>
+                </div>
+
+                <div class="artifact-card reveal">
+                    <div class="artifact-chrome">
+                        <span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span>
+                        <span class="chrome-label">SCHEDULER</span>
+                    </div>
+                    <div class="artifact-ui scheduler-container">
+                        <div class="calendar-grid" id="calendar-grid"></div>
+                        <div id="svg-cursor" class="virtual-cursor">
+                            <i data-lucide="mouse-pointer-2"></i>
+                        </div>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>Security Risk Assessments</h3>
+                        <p>Comprehensive site vulnerability analysis with zero ambiguity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             PROTOCOL
+        ══════════════════════════════ -->
+        <section id="protocol" class="protocol-wrapper">
+            <div class="protocol-header">
+                <span class="label-mono" style="color: rgba(255,255,255,0.4)">// OUR PROCESS</span>
+                <h2 class="section-title" style="color:white;">How we build<br>your defence.</h2>
+            </div>
+
+            <div class="protocol-card" id="step-01">
+                <div class="protocol-visual">
+                    <svg class="radar-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(233, 152, 24, 0.15)" />
+                        <circle cx="50" cy="50" r="32" fill="none" stroke="rgba(233, 152, 24, 0.2)" />
+                        <circle cx="50" cy="50" r="16" fill="none" stroke="rgba(233, 152, 24, 0.3)" />
+                        <line x1="50" y1="50" x2="50" y2="2" class="radar-sweep" />
+                    </svg>
+                </div>
+                <div class="protocol-info">
+                    <span class="mono-step">01</span>
+                    <h2>Assess &amp; Map</h2>
+                    <p>We begin with a rigorous, on-site security risk assessment — identifying vulnerabilities across
+                        physical access points and personnel deployment.</p>
+                </div>
+            </div>
+
+            <div class="protocol-card" id="step-02">
+                <div class="protocol-visual">
+                    <div class="laser-grid">
+                        <div class="laser-line"></div>
+                    </div>
+                </div>
+                <div class="protocol-info">
+                    <span class="mono-step">02</span>
+                    <h2>Deploy &amp; Integrate</h2>
+                    <p>From static guards to CCTV networks — every solution is customised to your site and risk profile.
+                        Deployed with precision.</p>
+                </div>
+            </div>
+
+            <div class="protocol-card" id="step-03">
+                <div class="protocol-visual">
+                    <div class="ekg-container">
+                        <svg class="ekg-svg" viewBox="0 0 200 100">
+                            <path class="ekg-path"
+                                d="M0,50 L40,50 L50,20 L70,80 L80,50 L120,50 L130,10 L150,90 L160,50 L200,50" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="protocol-info">
+                    <span class="mono-step">03</span>
+                    <h2>Monitor &amp; Respond</h2>
+                    <p>Our 24/7 centralised control room maintains constant oversight. When something happens, our armed
+                        response teams are already moving.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+             CONTACT
+        ══════════════════════════════ -->
+        <section id="contact" class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-copy reveal">
+                    <span class="label-mono" style="color: var(--color-primary)">// SECURE YOUR ASSETS</span>
+                    <h2 class="section-title">Let's build a safer<br>future together.</h2>
+                    <p class="contact-lead">Eclipse Security Solutions is your partner in building a safer, more secure
+                        future. Every engagement starts with a no-obligation security assessment — our team will
+                        identify vulnerabilities and deliver a customised protection proposal tailored to your needs.
+                    </p>
+                    <ul class="trust-signals">
+                        <li>
+                            <span class="trust-icon"><i data-lucide="shield-check"></i></span>
+                            <div>
+                                <strong>PISG Act Certified</strong>
+                                <span>Fully licensed &amp; regulated</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="trust-icon"><i data-lucide="clock"></i></span>
+                            <div>
+                                <strong>24/7 Operations</strong>
+                                <span>No downtime, no exceptions</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="trust-icon"><i data-lucide="users"></i></span>
+                            <div>
+                                <strong>Dedicated Account Management</strong>
+                                <span>A named contact for every contract</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form-container reveal">
+                    <form id="assessment-form" novalidate>
+                        <div class="form-field">
+                            <input type="text" id="f-name" placeholder=" " required autocomplete="name">
+                            <label for="f-name">Full Name</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" id="f-company" placeholder=" " required autocomplete="organization">
+                            <label for="f-company">Company / Organisation</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="email" id="f-email" placeholder=" " required autocomplete="email">
+                            <label for="f-email">Email Address</label>
+                        </div>
+                        <div class="form-field form-field--select">
+                            <select id="f-service" required>
+                                <option value="">Select a Service</option>
+                                <option>Manned Guarding &amp; Physical Security</option>
+                                <option>Mobile Patrols &amp; Rapid Armed Response</option>
+                                <option>Cash &amp; Valuables In-Transit (CVIT)</option>
+                                <option>Electronic Security &amp; Technology Integration</option>
+                                <option>Specialised Security &amp; Risk Consulting</option>
+                                <option>Remote Monitoring &amp; Control Room</option>
+                                <option>Cybersecurity Liaison</option>
+                                <option>General Enquiry</option>
+                            </select>
+                            <label for="f-service">Nature of Enquiry</label>
+                        </div>
+                        <button type="submit" class="btn-primary-large btn-full">
+                            <span>Request Your Free Assessment</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </form>
+                    <div id="form-success" class="form-success hidden" role="status" aria-live="polite">
+                        <i data-lucide="check-circle"></i>
+                        <strong>Assessment request received.</strong>
+                        <span>A consultant will contact you shortly.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════════════════════════
+         FOOTER
+    ══════════════════════════════ -->
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <!-- Logo in footer -->
+                    <a href="#" class="footer-logo-wrap" aria-label="Eclipse Security Solutions">
+                        <img src="assets/EclipseSecurityLight.svg" alt="Eclipse Security Solutions logo"
+                            class="footer-logo-img">
+                    </a>
+                    <p class="tagline">Darkness is our advantage.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <a href="#services">Manned Guarding</a>
+                        <a href="#services">Mobile Patrols</a>
+                        <a href="#services">Remote Monitoring</a>
+                        <a href="#services">Electronic Security</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#approach">Our Approach</a>
+                        <a href="#">Compliance</a>
+                        <a href="#">Careers</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <a href="tel:+263000000000">+263 00 000 0000</a>
+                        <a href="mailto:info@eclipsesecurity.co.zw">info@eclipsesecurity.co.zw</a>
+                        <a href="#">Harare, Zimbabwe</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-status">
+                    <span class="pulse-dot green"></span>
+                    <span class="mono-label">CONTROL ROOM OPERATIONAL — 24/7/365</span>
+                </div>
+                <p class="legal-tag">© 2025 Eclipse Security Solutions (Pvt) Ltd — Licensed Security Provider, Zimbabwe
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/components.js"></script>
+</body>
+
+</html>

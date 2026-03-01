@@ -1,0 +1,305 @@
+/* ════════════════════════════════════════
+   KEYFRAMES
+════════════════════════════════════════ */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(233, 152, 24, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(233, 152, 24, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(233, 152, 24, 0);
+  }
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scrollPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════════════════
+   PULSE DOT
+════════════════════════════════════════ */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.pulse-dot.green {
+  background: #28C840;
+}
+
+/* ════════════════════════════════════════
+   RADAR (Protocol Step 01)
+════════════════════════════════════════ */
+.radar-svg {
+  width: 200px;
+  height: 200px;
+}
+
+.radar-sweep {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  transform-origin: 50px 50px;
+  animation: rotate 4s linear infinite;
+}
+
+/* ════════════════════════════════════════
+   LASER GRID (Protocol Step 02)
+════════════════════════════════════════ */
+.laser-grid {
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(233, 152, 24, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 152, 24, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  position: relative;
+}
+
+.laser-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  box-shadow: 0 0 20px var(--color-primary), 0 0 6px var(--color-primary);
+  animation: scan 3s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════
+   EKG (Protocol Step 03)
+════════════════════════════════════════ */
+.ekg-container {
+  width: 90%;
+  height: 80px;
+}
+
+.ekg-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ekg-path {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(233, 152, 24, 0.5));
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 4s linear infinite;
+}
+
+/* ════════════════════════════════════════
+   TYPEWRITER TERMINAL
+════════════════════════════════════════ */
+.typewriter-container {
+  background: #000;
+  padding: 1rem 1.25rem;
+  border-radius: 0;
+  height: 180px;
+  font-family: var(--font-mono);
+  color: #28C840;
+  overflow: hidden;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.mono-feed {
+  white-space: pre-wrap;
+}
+
+.mono-feed::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  opacity: 0.7;
+}
+
+/* ════════════════════════════════════════
+   SHUFFLER / ALERT DISPATCHES
+════════════════════════════════════════ */
+.shuffler-container {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shuffler-stack {
+  position: relative;
+  height: 100%;
+}
+
+.shuffle-card {
+  position: absolute;
+  width: 100%;
+  background: var(--color-dark-3);
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 0 4px 4px 0;
+}
+
+/* ════════════════════════════════════════
+   CALENDAR SCHEDULER
+════════════════════════════════════════ */
+.scheduler-container {
+  height: 180px;
+  position: relative;
+  background: var(--color-dark);
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.cal-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cal-cell.active {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.cal-cell.dimmed {
+  background: rgba(233, 152, 24, 0.15);
+  color: var(--color-primary);
+}
+
+/* ════════════════════════════════════════
+   PERFORMANCE HINTS
+════════════════════════════════════════ */
+.radar-sweep,
+.ekg-path,
+.laser-line,
+.scroll-line {
+  will-change: transform, opacity;
+}
+
+/* ════════════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+  .pulse-dot,
+  .radar-sweep,
+  .laser-line,
+  .ekg-path,
+  .scroll-line {
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
