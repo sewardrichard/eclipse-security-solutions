@@ -326,3 +326,171 @@ section {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ════════════════════════════════════════
+   LABEL-MONO & SECTION-TITLE MODIFIERS
+   (Replaces inline style="" overrides)
+════════════════════════════════════════ */
+
+/* Over dark sections: dimmed amber-white */
+.label-mono--dim {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Over dark sections: full white */
+.section-title--white {
+  color: var(--color-white);
+}
+
+/* Label accented with primary brand colour */
+.label-mono--primary {
+  color: var(--color-primary);
+}
+
+/* ════════════════════════════════════════
+   ECLIPSE MOBILE FIX (≤ 400px)
+════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .hero-eclipse-wrapper {
+    display: none;
+  }
+}
+
+/* ════════════════════════════════════════
+   SECTORS — INDUSTRIES WE PROTECT
+════════════════════════════════════════ */
+.sectors-section {
+  background: var(--color-surface);
+  padding: clamp(4rem, 6vw, 6rem) var(--site-padding);
+}
+
+.sectors-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectors-inner .label-mono {
+  display: inline-flex;
+  margin-bottom: 3rem;
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.sector-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.75rem 1.25rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s ease;
+  cursor: default;
+}
+
+.sector-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary-dim);
+}
+
+.sector-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--color-primary-dim);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s var(--ease-spring);
+}
+
+.sector-item:hover .sector-icon {
+  background: var(--color-primary);
+  transform: scale(1.1) rotate(4deg);
+}
+
+.sector-icon i[data-lucide] {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-primary);
+  transition: stroke 0.3s ease;
+}
+
+.sector-item:hover .sector-icon i[data-lucide] {
+  stroke: var(--color-dark);
+}
+
+.sector-item span {
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .sectors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ════════════════════════════════════════
+   CONTACT — PHONE NUMBER
+════════════════════════════════════════ */
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-phone:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(233, 152, 24, 0.12);
+}
+
+.contact-phone i[data-lucide] {
+  width: 22px;
+  height: 22px;
+  stroke: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contact-phone-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+.contact-phone-number {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.contact-phone-number:hover {
+  color: var(--color-primary);
+}

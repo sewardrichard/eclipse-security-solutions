@@ -181,8 +181,63 @@ function initFormHandler() {
     const success = document.getElementById('form-success');
     if (!form || !success) return;
 
+    // Helper: show/clear field error
+    function setError(fieldId, msg) {
+        const field = form.querySelector(`#${fieldId}`);
+        if (!field) return;
+        let err = field.parentElement.querySelector('.field-error');
+        if (msg) {
+            field.style.borderColor = '#e53e3e';
+            if (!err) {
+                err = document.createElement('span');
+                err.className = 'field-error';
+                err.setAttribute('aria-live', 'polite');
+                field.parentElement.appendChild(err);
+            }
+            err.textContent = msg;
+        } else {
+            field.style.borderColor = '';
+            if (err) err.remove();
+        }
+    }
+
     form.addEventListener('submit', e => {
         e.preventDefault();
+        let valid = true;
+
+        const name = form.querySelector('#f-name');
+        const company = form.querySelector('#f-company');
+        const email = form.querySelector('#f-email');
+        const service = form.querySelector('#f-service');
+
+        // Name
+        if (!name.value.trim()) {
+            setError('f-name', 'Please enter your full name.');
+            valid = false;
+        } else { setError('f-name', ''); }
+
+        // Company
+        if (!company.value.trim()) {
+            setError('f-company', 'Please enter your company or organisation name.');
+            valid = false;
+        } else { setError('f-company', ''); }
+
+        // Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+            setError('f-email', 'Please enter a valid email address.');
+            valid = false;
+        } else { setError('f-email', ''); }
+
+        // Service
+        if (!service.value) {
+            setError('f-service', 'Please select a service.');
+            valid = false;
+        } else { setError('f-service', ''); }
+
+        if (!valid) return;
+
+        // All good — show success
         form.classList.add('hidden');
         success.classList.remove('hidden');
         setTimeout(() => {
@@ -190,6 +245,11 @@ function initFormHandler() {
             form.reset();
             form.classList.remove('hidden');
         }, 4000);
+    });
+
+    // Clear error on input
+    form.querySelectorAll('input, select').forEach(el => {
+        el.addEventListener('input', () => setError(el.id, ''));
     });
 }
 
