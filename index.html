@@ -8,11 +8,11 @@
     <meta name="description"
         content="Eclipse Security Solutions delivers intelligent, proactive protection through highly trained personnel, advanced technology, and unwavering vigilance across Zimbabwe.">
 
-    <!-- Google Fonts: Syne (headlines) + Inter (body) + Space Mono (brand/mono) -->
+    <!-- Google Fonts: Rethink Sans + Geist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -24,7 +24,7 @@
 <body>
     <div class="noise-overlay"></div>
     <div id="top-sentinel"></div>
-    <canvas id="starCanvas"></canvas>
+    <canvas id="starCanvas" class="starfield-canvas"></canvas>
 
     <!-- ══════════════════════════════
          NAV
@@ -62,8 +62,8 @@
                 <span class="label-mono">// ECLIPSE SECURITY SOLUTIONS</span>
 
                 <h1 class="hero-title">
-                    <span class="title-line-1">Total Security.</span>
-                    <span class="title-line-2">Zero Blind Spots.</span>
+                    <span class="title-line-1">Your Security.</span>
+                    <span class="title-line-2">Our Obsession.</span>
                 </h1>
                 <p class="hero-subline">Intelligent protection that anticipates the unexpected. Custom-built safety
                     ecosystems designed for absolute resilience.</p>
@@ -94,11 +94,12 @@
              STATS STRIP
         ══════════════════════════════ -->
         <section class="stats-strip" aria-label="Key operational strengths">
+            <canvas class="starfield-canvas"></canvas>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">PISG</span>
-                    <span class="stat-suffix">Act</span>
-                    <span class="stat-label">Certified &amp; regulated under national law</span>
+                    <span class="stat-number">Experienced</span>
+                    <span class="stat-suffix">Team</span>
+                    <span class="stat-label">Professional security personnel at your service</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
@@ -127,109 +128,103 @@
         <section id="services" class="services-section">
             <div class="section-intro services-intro-align">
                 <span class="label-mono">// SERVICE PORTFOLIO</span>
-                <h2 class="section-title">Comprehensive Protection.<br>Every Vector.</h2>
-                <p class="section-subtext">An integrated suite of services designed to address every dimension of modern
-                    security risk.</p>
+                <h2 class="section-title">Our Comprehensive<br>Service Portfolio</h2>
+                <p class="section-subtext">Eclipse Security Solutions offers an integrated suite of services designed to address every aspect of modern security risk.</p>
             </div>
 
-            <div class="services-groups">
-                <div class="services-group">
-                    <h3 class="services-group-title">Guarding &amp; Response</h3>
-                    <div class="services-grid">
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="shield"></i>
-                            </div>
-                            <h3>Manned Guarding &amp; Physical Security</h3>
-                            <p>Rigorously vetted, uniformed officers deployed to static posts across commercial, industrial,
-                                and residential sites, including armed and unarmed guards, professional access control and
-                                reception services, and dedicated canine units that strengthen patrol, detection, and
-                                apprehension capability, 24/7.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="zap"></i>
-                            </div>
-                            <h3>Mobile Patrols &amp; Rapid Armed Response</h3>
-                            <p>GPS-tracked scheduled and randomised vehicle patrols across residential areas, business parks,
-                                and industrial sites, combined with immediate armed reaction dispatch to alarm activations or
-                                emergency calls and secure key holding &amp; alarm response for guaranteed attendance.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="lock"></i>
-                            </div>
-                            <h3>Cash &amp; Valuables In-Transit (CVIT)</h3>
-                            <p>Armoured vehicle logistics for secure transportation of cash and other valuables for banking,
-                                retail, and corporate clients, including payroll and high-value item deliveries, sensitive
-                                documents, pharmaceuticals, and full ATM replenishment and servicing support for financial
-                                institutions.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
+            <div class="services-grid">
+                <!-- Service 1: Manned Guarding -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">01</span>
+                        <h3>Manned Guarding & Physical Security</h3>
                     </div>
+                    <ul class="service-bullets">
+                        <li><strong>Static Guarding:</strong> Uniformed, trained security officers deployed at fixed posts for 24/7 site security at commercial, industrial, and residential locations.</li>
+                        <li><strong>Armed & Unarmed Guards:</strong> Professionally vetted personnel, with armed units deployed based on rigorous risk assessment.</li>
+                        <li><strong>Access Control & Reception Services:</strong> Managing entry points, verifying credentials, and providing professional front-of-house security liaison.</li>
+                        <li><strong>Canine Unit Services:</strong> Trained dogs and handler teams for patrol, detection, and apprehension support.</li>
+                    </ul>
                 </div>
 
-                <div class="services-group">
-                    <h3 class="services-group-title">Technology &amp; Monitoring</h3>
-                    <div class="services-grid">
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="camera"></i>
-                            </div>
-                            <h3>Electronic Security &amp; Technology Integration</h3>
-                            <p>Design, supply, installation, and 24/7 monitoring of integrated electronic security systems,
-                                including intrusion alarm solutions, CCTV surveillance (analogue and IP) with remote viewing,
-                                biometric, card, and PIN-based access control, plus perimeter protection through electric
-                                fencing, seismic sensors, and beam detection.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="monitor"></i>
-                            </div>
-                            <h3>Remote Monitoring &amp; Control Room Services</h3>
-                            <p>A state-of-the-art centralised control room operating 24/7, providing remote CCTV monitoring,
-                                alarm and system oversight, and guard tour verification via smartphone technology, supported
-                                by a real-time client portal for incident reports, patrol logs, and system status updates.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
+                <!-- Service 2: Mobile Patrols -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">02</span>
+                        <h3>Mobile Patrols & Rapid Armed Response</h3>
                     </div>
+                    <ul class="service-bullets">
+                        <li><strong>Scheduled & Randomised Patrols:</strong> GPS-tracked vehicle patrols to deter crime and inspect premises across residential areas, business parks, and industrial sites.</li>
+                        <li><strong>Armed Reaction Services:</strong> Immediate dispatch of trained response teams to alarm activations or emergency calls, 24 hours a day.</li>
+                        <li><strong>Key Holding & Alarm Response:</strong> Securely holding client keys and providing guaranteed response to alarm system triggers.</li>
+                    </ul>
                 </div>
 
-                <div class="services-group">
-                    <h3 class="services-group-title">Advisory &amp; Specialist</h3>
-                    <div class="services-grid">
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="clipboard-list"></i>
-                            </div>
-                            <h3>Specialised Security &amp; Risk Consulting</h3>
-                            <p>Comprehensive security risk assessments and audits with clear recommendations, event security
-                                management and crowd control, executive and close protection for high-profile individuals, and
-                                customised security training programmes for client staff and guards, covering legal
-                                frameworks, customer service, emergency procedures, report writing, and professional conduct.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
-                        <div class="service-card reveal">
-                            <div class="service-icon-wrap">
-                                <i data-lucide="wifi"></i>
-                            </div>
-                            <h3>Cybersecurity Liaison &amp; Physical-Digital Convergence</h3>
-                            <p>Protecting server rooms and data centres against unauthorised physical access, alongside expert
-                                consultation on converging physical security systems with IT networks to counter emerging
-                                hybrid threats and strengthen your overall security posture.</p>
-
-                            <span class="card-arrow">→</span>
-                        </div>
+                <!-- Service 3: CVIT -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">03</span>
+                        <h3>Cash & Valuables In-Transit (CVIT)</h3>
                     </div>
+                    <ul class="service-bullets">
+                        <li><strong>Secure Cash Transportation:</strong> Armoured vehicle logistics for banking, retail, and corporate cash movements.</li>
+                        <li><strong>Payroll & High-Value Item Delivery:</strong> Secure transport of payroll, sensitive documents, pharmaceuticals, and other valuables.</li>
+                        <li><strong>ATM Replenishment & Servicing:</strong> Full secure logistics support for financial institutions.</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Electronic Security -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">04</span>
+                        <h3>Electronic Security & Technology Integration</h3>
+                    </div>
+                    <ul class="service-bullets">
+                        <li><strong>Alarm System Installation & Monitoring:</strong> Sales, installation, and 24/7 monitoring of intrusion detection systems.</li>
+                        <li><strong>CCTV Surveillance Systems:</strong> Supply, installation, and monitoring of analog and IP-based video surveillance with remote viewing capabilities.</li>
+                        <li><strong>Access Control Systems:</strong> Implementation of electronic entry systems (biometric, card, pin) for enhanced perimeter security.</li>
+                        <li><strong>Perimeter Protection:</strong> Electric fencing, seismic sensors, and beam detection systems.</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5: Risk Consulting -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">05</span>
+                        <h3>Specialised Security & Risk Consulting</h3>
+                    </div>
+                    <ul class="service-bullets">
+                        <li><strong>Security Risk Assessments & Audits:</strong> Comprehensive site vulnerability analyses and detailed recommendations for physical and procedural security enhancement.</li>
+                        <li><strong>Event Security Management:</strong> Crowd control, access management, and VIP protection for corporate functions, festivals, and public events.</li>
+                        <li><strong>Executive & Close Protection:</strong> Discreet, professional protection services for executives, high-net-worth individuals, and visiting dignitaries.</li>
+                        <li><strong>Security Training Programs:</strong> Customised training for client staff on emergency response, fraud prevention, and security awareness.</li>
+                        <li><strong>Security Guard Training:</strong> Comprehensive basic and advanced training programs for security personnel, covering legal frameworks, customer service, emergency procedures, report writing, and professional conduct.</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6: Remote Monitoring -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">06</span>
+                        <h3>Remote Monitoring & Control Room Services</h3>
+                    </div>
+                    <ul class="service-bullets">
+                        <li><strong>Centralised 24/7 Control Room:</strong> State-of-the-art facility monitoring all security systems, coordinating patrols, and managing incident response.</li>
+                        <li><strong>Remote Video Monitoring & Guard Tour Verification:</strong> Proactive surveillance of CCTV feeds and verification of guard patrols via smartphone technology.</li>
+                        <li><strong>Client Portal Access:</strong> Real-time online access to incident reports, patrol logs, and system status for complete transparency.</li>
+                    </ul>
+                </div>
+
+                <!-- Service 7: Cybersecurity -->
+                <div class="service-card reveal">
+                    <div class="service-card-header">
+                        <span class="service-num">07</span>
+                        <h3>Cybersecurity Liaison & Physical-Digital Convergence</h3>
+                    </div>
+                    <ul class="service-bullets">
+                        <li><strong>Physical Security for IT Infrastructure:</strong> Securing server rooms and data centres.</li>
+                        <li><strong>Consultation on Converged Security:</strong> Advising on the integration of physical security systems with IT networks to prevent emerging hybrid threats.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -246,17 +241,13 @@
                         <img src="assets/EclipseSecurityLight.svg" alt="Eclipse Security Solutions logo"
                             class="about-logo-img">
                     </div>
-                    <div class="about-cert-badge">
-                        <i data-lucide="award"></i>
-                        <span>PISG Act Certified</span>
-                    </div>
                 </div>
 
                 <!-- Right: copy -->
                 <div class="about-copy">
                     <span class="label-mono">// WHO WE ARE</span>
                     <h2 class="section-title">Protecting What<br>Matters Most.</h2>
-                    <p class="about-lead">Eclipse Security Solutions (Pvt) Ltd is a premier, licensed security provider
+                    <p class="about-lead">Eclipse Security Solutions (Pvt) Ltd is a premier security provider
                         based in Zimbabwe. We are dedicated to delivering comprehensive, intelligent, and proactive
                         protection for businesses, communities, and individuals across the nation.</p>
                     <p class="about-lead" style="margin-top: 1rem;">Founded on the principles of <strong>integrity,
@@ -284,14 +275,6 @@
                         <strong>Technology-Enabled</strong>
                         <p>Cutting-edge systems that enhance the effectiveness and accountability of our
                             personnel at every level.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="check-icon"><i data-lucide="shield-check"></i></span>
-                    <div>
-                        <strong>Compliance as Standard</strong>
-                        <p>Strict adherence to the PISG Act, NEC regulations, and all applicable laws of
-                            Zimbabwe.</p>
                     </div>
                 </li>
                 <li>
@@ -346,6 +329,7 @@
              FEATURES (DARK)
         ══════════════════════════════ -->
         <section class="features-dark">
+            <canvas class="starfield-canvas"></canvas>
             <div class="features-header reveal">
                 <span class="label-mono" style="color: rgba(255,255,255,0.4)">// OPERATIONAL INTELLIGENCE</span>
                 <h2 class="section-title" style="color:white;">The technology behind<br>every response.</h2>
@@ -406,6 +390,7 @@
              PROTOCOL
         ══════════════════════════════ -->
         <section id="protocol" class="protocol-wrapper">
+            <canvas class="starfield-canvas"></canvas>
             <div class="protocol-header">
                 <span class="label-mono" style="color: rgba(255,255,255,0.4)">// OUR PROCESS</span>
                 <h2 class="section-title" style="color:white;">How we build<br>your defence.</h2>
@@ -464,14 +449,36 @@
              CONTACT
         ══════════════════════════════ -->
         <section id="contact" class="contact-section">
+            <div class="section-intro">
+                <span class="label-mono" style="color: var(--color-primary)">// GET IN TOUCH</span>
+                <h2 class="section-title">Contact</h2>
+            </div>
+
             <div class="contact-grid">
                 <div class="contact-copy reveal">
-                    <span class="label-mono" style="color: var(--color-primary)">// SECURE YOUR ASSETS</span>
-                    <h2 class="section-title">Let's build a safer<br>future together.</h2>
+                    <h3 class="contact-heading">Let's build a safer<br>future together.</h3>
                     <p class="contact-lead">Eclipse Security Solutions is your partner in building a safer, more secure
                         future. Every engagement starts with a no-obligation security assessment, our team will
                         identify vulnerabilities and deliver a customised protection proposal tailored to your needs.
                     </p>
+
+                    <!-- Trust signals under the text -->
+                    <div class="contact-trust-signals">
+                        <div class="trust-item">
+                            <span class="trust-icon"><i data-lucide="clock"></i></span>
+                            <div>
+                                <strong>24/7 Operations</strong>
+                                <span>No downtime, no exceptions</span>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-icon"><i data-lucide="users"></i></span>
+                            <div>
+                                <strong>Dedicated Account Management</strong>
+                                <span>A named contact for every contract</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form-container reveal">
                     <form id="assessment-form" novalidate>
@@ -512,33 +519,6 @@
                         <span>A consultant will contact you shortly.</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Full-width trust signals below the form -->
-            <div class="trust-signals-wrapper">
-                <ul class="trust-signals">
-                    <li>
-                        <span class="trust-icon"><i data-lucide="shield-check"></i></span>
-                        <div>
-                            <strong>PISG Act Certified</strong>
-                            <span>Fully licensed &amp; regulated</span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="trust-icon"><i data-lucide="clock"></i></span>
-                        <div>
-                            <strong>24/7 Operations</strong>
-                            <span>No downtime, no exceptions</span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="trust-icon"><i data-lucide="users"></i></span>
-                        <div>
-                            <strong>Dedicated Account Management</strong>
-                            <span>A named contact for every contract</span>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </section>
 
@@ -591,7 +571,7 @@
                     <span class="pulse-dot green"></span>
                     <span class="mono-label">CONTROL ROOM OPERATIONAL - 24/7/365</span>
                 </div>
-                <p class="legal-tag"> 2025 Eclipse Security Solutions (Pvt) Ltd - Licensed Security Provider, Zimbabwe | Website designed by <a href="https://sewardrichard.github.io/portfolio/">Seward Mupereri</a>
+                <p class="legal-tag"> 2025 Eclipse Security Solutions (Pvt) Ltd | Website designed by <a href="https://sewardrichard.github.io/portfolio/">Seward Mupereri</a>
                 </p>
             </div>
         </div>

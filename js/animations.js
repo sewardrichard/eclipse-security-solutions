@@ -13,8 +13,122 @@ document.addEventListener('DOMContentLoaded', () => {
             .from(".hero-actions", { opacity: 0, y: 16, duration: 0.6, ease: "power3.out" }, "-=0.5")
             .from(".hero-scroll-indicator", { opacity: 0, duration: 0.5 }, "-=0.2");
 
+        // ── Starfield System (Multiple Canvases) ──────────────────────────────
+        (function initStarfields() {
+            const canvases = document.querySelectorAll('.starfield-canvas');
+            if (canvases.length === 0) return;
+
+            const STAR_COUNT = 80;
+            const SHOOTING_STAR_INTERVAL = 4000;
+
+            canvases.forEach(canvas => {
+                const ctx = canvas.getContext('2d');
+                let width, height;
+                let stars = [];
+                let shootingStars = [];
+                let lastShootTime = 0;
+
+                const resize = () => {
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    width = canvas.width = rect.width;
+                    height = canvas.height = rect.height;
+                };
+
+                const initStars = () => {
+                    stars = [];
+                    for (let i = 0; i < STAR_COUNT; i++) {
+                        stars.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            r: Math.random() * 0.8 + 0.2,
+                            base: Math.random() * 0.4 + 0.1,
+                            amp: Math.random() * 0.3 + 0.05,
+                            freq: Math.random() * 0.002 + 0.0005,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+                };
+
+                const spawnShootingStar = () => {
+                    const side = Math.random() > 0.5 ? 'left' : 'top';
+                    shootingStars.push({
+                        x: side === 'left' ? 0 : Math.random() * width,
+                        y: side === 'left' ? Math.random() * height * 0.5 : 0,
+                        len: Math.random() * 80 + 40,
+                        speed: Math.random() * 3 + 2,
+                        angle: Math.PI / 4,
+                        life: 0,
+                        maxLife: 1
+                    });
+                };
+
+                const draw = (timestamp) => {
+                    ctx.clearRect(0, 0, width, height);
+
+                    if (timestamp - lastShootTime > SHOOTING_STAR_INTERVAL + Math.random() * 3000) {
+                        if (Math.random() > 0.3) spawnShootingStar();
+                        lastShootTime = timestamp;
+                    }
+
+                    stars.forEach(star => {
+                        const twinkle = Math.sin(star.phase + timestamp * star.freq) * star.amp;
+                        const alpha = Math.max(0, Math.min(1, star.base + twinkle));
+                        ctx.beginPath();
+                        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(3)})`;
+                        ctx.fill();
+                    });
+
+                    for (let i = shootingStars.length - 1; i >= 0; i--) {
+                        const s = shootingStars[i];
+                        s.life += 0.016;
+                        
+                        if (s.life >= s.maxLife) {
+                            shootingStars.splice(i, 1);
+                            continue;
+                        }
+
+                        const progress = s.life / s.maxLife;
+                        const fadeIn = Math.min(progress / 0.2, 1);
+                        const fadeOut = progress > 0.7 ? 1 - (progress - 0.7) / 0.3 : 1;
+                        const alpha = fadeIn * fadeOut;
+
+                        const tailX = s.x - Math.cos(s.angle) * s.len;
+                        const tailY = s.y - Math.sin(s.angle) * s.len;
+
+                        const gradient = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+                        gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
+                        gradient.addColorStop(1, `rgba(255, 255, 255, ${alpha.toFixed(2)})`);
+
+                        ctx.beginPath();
+                        ctx.moveTo(tailX, tailY);
+                        ctx.lineTo(s.x, s.y);
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+
+                        s.x += Math.cos(s.angle) * s.speed;
+                        s.y += Math.sin(s.angle) * s.speed;
+
+                        if (s.x > width + s.len || s.y > height + s.len) {
+                            shootingStars.splice(i, 1);
+                        }
+                    }
+
+                    requestAnimationFrame(draw);
+                };
+
+                resize();
+                initStars();
+                window.addEventListener('resize', () => {
+                    resize();
+                    initStars();
+                });
+                requestAnimationFrame(draw);
+            });
+        })();
+
         // ── Stat Counters ──────────────────────────────
-        // Only animate stats that explicitly declare a numeric data-target.
         const statNumbers = Array.from(document.querySelectorAll('.stat-number'))
             .filter(el => el.dataset && el.dataset.target && !isNaN(parseInt(el.dataset.target, 10)));
 
@@ -56,9 +170,25 @@ document.addEventListener('DOMContentLoaded', () => {
             once: true
         });
 
+        // ── Service Cards (batch reveal with stagger) ──────
+        ScrollTrigger.batch('.services-grid .service-card', {
+            start: 'top 85%',
+            onEnter: batch => batch.forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.7,
+                        ease: 'power3.out',
+                        delay: (i % 2) * 0.15 + Math.floor(i / 2) * 0.1
+                    }
+                );
+            }),
+            once: true
+        });
+
         // ── Protocol Cards (simple column reveal) ──────
-        // Steps are now always visible in a vertical column; we only add a soft
-        // scroll-in animation for each card instead of sticky pinning.
         ScrollTrigger.batch('.protocol-card', {
             start: 'top 85%',
             onEnter: batch => batch.forEach((card, i) => {
@@ -89,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!starCanvas || !eclipse || !moon) return;
 
-            const MOON_MAX = 520; // start further below so rise is more visible
+            const MOON_MAX = 520;
             const TOTALITY = 20;
             const ENTRY_MS = 3000;
 
@@ -263,9 +393,8 @@ document.addEventListener('DOMContentLoaded', () => {
             function runEntry(ts) {
                 if (!entryStart) entryStart = ts;
                 const t = Math.min((ts - entryStart) / ENTRY_MS, 1);
-                // Animate from well below centre (MOON_MAX) up to slight overshoot above 0
                 const pathStart = MOON_MAX;
-                const pathEnd = 0; // stop exactly at totality
+                const pathEnd = 0;
                 const eased = easeOutExpo(t);
                 const y = pathStart + (pathEnd - pathStart) * eased;
                 setMoonY(y);
@@ -278,9 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Start entry without forcing scroll/overflow (we already manage layout elsewhere)
             setMoonY(MOON_MAX);
-
             setTimeout(() => requestAnimationFrame(runEntry), 800);
 
             let ticking = false;

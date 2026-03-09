@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════
    DESIGN TOKENS
-   Font Stack: Syne (headlines) | Inter (body) | Space Mono (brand/mono)
+   Font Stack: Geist (headlines) | Rethink Sans (body) | monospace (brand/code)
 ════════════════════════════════════════ */
 :root {
   /* Colour */
@@ -19,9 +19,9 @@
   --color-white: #FFFFFF;
 
   /* Typography */
-  --font-main: 'Inter', system-ui, sans-serif;
-  --font-head: 'Syne', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-main: 'Rethink Sans', system-ui, sans-serif;
+  --font-head: 'Geist', sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
 
   /* Spacing scale */
   --space-xs: 0.5rem;
@@ -98,7 +98,7 @@ a {
 
 /* ════════════════════════════════════════
    TYPOGRAPHY SCALE
-   Syne: headings | Inter: body | Space Mono: labels
+   Geist: headings | Rethink Sans: body | Monospace: labels
 ════════════════════════════════════════ */
 h1,
 h2,
