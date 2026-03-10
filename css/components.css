@@ -2069,8 +2069,7 @@ i[data-lucide] {
   }
 
   .protocol-visual {
-    height: 240px;
-    width: 100%;
+    display: none;
   }
 
   .footer-top {
