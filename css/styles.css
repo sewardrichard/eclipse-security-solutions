@@ -360,19 +360,37 @@ section {
    SECTORS — INDUSTRIES WE PROTECT
 ════════════════════════════════════════ */
 .sectors-section {
-  background: var(--color-surface);
-  padding: clamp(4rem, 6vw, 6rem) var(--site-padding);
+  background: var(--color-primary);
+  padding: 2.5rem var(--site-padding) 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sectors-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1), transparent 50%);
+  pointer-events: none;
 }
 
 .sectors-inner {
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .sectors-inner .label-mono {
   display: inline-flex;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+
+.sectors-inner .label-mono::before {
+  background: var(--color-dark);
 }
 
 .sectors-grid {
@@ -404,7 +422,7 @@ section {
 .sector-icon {
   width: 52px;
   height: 52px;
-  background: var(--color-primary-dim);
+  background: #0d0f16;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -417,14 +435,14 @@ section {
   transform: scale(1.1) rotate(4deg);
 }
 
-.sector-icon i[data-lucide] {
+.sector-icon svg {
   width: 24px;
   height: 24px;
   stroke: var(--color-primary);
   transition: stroke 0.3s ease;
 }
 
-.sector-item:hover .sector-icon i[data-lucide] {
+.sector-item:hover .sector-icon svg {
   stroke: var(--color-dark);
 }
 
@@ -441,22 +459,6 @@ section {
   .sectors-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-/* ════════════════════════════════════════
-   CONTACT — PHONE NUMBER
-════════════════════════════════════════ */
-.contact-phone {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1.15rem 1.25rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--color-primary);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-phone:hover {
