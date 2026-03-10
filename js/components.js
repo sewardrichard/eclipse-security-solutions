@@ -237,14 +237,44 @@ function initFormHandler() {
 
         if (!valid) return;
 
-        // All good — show success
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-        setTimeout(() => {
-            success.classList.add('hidden');
-            form.reset();
-            form.classList.remove('hidden');
-        }, 4000);
+        // Collect data
+        const formData = new FormData(form);
+
+        // Show loading state if desired (optional, for now just proceeding to fetch)
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+
+        fetch('process-form.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // All good — show success
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
+                    setTimeout(() => {
+                        success.classList.add('hidden');
+                        form.reset();
+                        form.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    }, 4000);
+                } else {
+                    alert(data.message || 'Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Could not connect to the server. Please try again later.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
     });
 
     // Clear error on input
